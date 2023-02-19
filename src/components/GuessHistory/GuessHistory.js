@@ -3,7 +3,7 @@ import {range} from "../../utils";
 import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 
 function GuessHistory({ guessHistory }) {
-    const emptyGuess = range(0, 5).map(() => '');
+    const emptyGuess = range(0, 5).map(() => { return { letter: '' } });
     const maximumEmptyGuesses = range(0, NUM_OF_GUESSES_ALLOWED).map(() => emptyGuess);
 
     function lastSixItems(_, i) {
@@ -29,11 +29,13 @@ function GuessHistory({ guessHistory }) {
                     className="guess"
                     key={crypto.randomUUID()}>
                     {range(0, historyItem.length)
-                        .map(i =>
-                            <span
-                                className="cell"
+                        .map(i => {
+                            const item = historyItem[i];
+                            return <span
+                                className={`cell ${item.status || ''}`.trim()}
                                 key={i}
-                            >{historyItem[i]}</span>)}
+                            >{item.letter}</span>;
+                        })}
                 </p>
             )
         }
