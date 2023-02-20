@@ -26,6 +26,7 @@ function GuessInput({ handleGuess, gameResult }) {
                 textTransform: "uppercase"
             }}
             disabled={gameResult !== null}
+            required={true}
         />
     </form>;
 }
