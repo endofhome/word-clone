@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ addGuessToHistory }) {
+function GuessInput({ handleGuess, gameResult }) {
     const [potentialGuess, setPotentialGuess] = React.useState('');
 
     function handleSubmit(event) {
@@ -9,7 +9,7 @@ function GuessInput({ addGuessToHistory }) {
         console.log({guess: potentialGuess.toUpperCase()});
         setPotentialGuess('');
 
-        addGuessToHistory(potentialGuess);
+        handleGuess(potentialGuess);
     }
 
     return <form className="guess-input-wrapper"
@@ -25,6 +25,7 @@ function GuessInput({ addGuessToHistory }) {
             style={{
                 textTransform: "uppercase"
             }}
+            disabled={gameResult !== null}
         />
     </form>;
 }
