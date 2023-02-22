@@ -1,7 +1,7 @@
 import React from 'react';
 import {NUM_OF_LETTERS_PER_GUESS} from "../../constants";
 
-function GuessInput({ handleGuess, gameResult }) {
+function GuessInput({ handleGuess, gameResult, inputReference }) {
     const [potentialGuess, setPotentialGuess] = React.useState('');
 
     function handleSubmit(event) {
@@ -28,6 +28,7 @@ function GuessInput({ handleGuess, gameResult }) {
             }}
             disabled={gameResult !== null}
             required={true}
+            ref={inputReference}
         />
     </form>;
 }

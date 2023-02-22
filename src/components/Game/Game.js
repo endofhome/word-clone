@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
@@ -30,9 +30,15 @@ function Game() {
     }
   }
 
+  const inputReference = useRef(null);
+
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
+
   return <>
     <GuessHistory guessHistory={guessHistory} />
-    <GuessInput handleGuess={handleGuess} gameResult={gameResult} />
+    <GuessInput handleGuess={handleGuess} gameResult={gameResult} inputReference={inputReference} />
     <GameResult gameResult={gameResult} answer={answer} guessHistory={guessHistory} />
     <Keyboard guessHistory={guessHistory} />
   </>;
