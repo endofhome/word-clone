@@ -1,4 +1,5 @@
 import React from 'react';
+import {NUM_OF_LETTERS_PER_GUESS} from "../../constants";
 
 function GuessInput({ handleGuess, gameResult }) {
     const [potentialGuess, setPotentialGuess] = React.useState('');
@@ -20,8 +21,8 @@ function GuessInput({ handleGuess, gameResult }) {
             type="text"
             value={potentialGuess}
             onChange={event => setPotentialGuess(event.target.value)}
-            minLength={5}
-            maxLength={5}
+            minLength={NUM_OF_LETTERS_PER_GUESS}
+            maxLength={NUM_OF_LETTERS_PER_GUESS}
             style={{
                 textTransform: "uppercase"
             }}
