@@ -7,6 +7,7 @@ import GuessHistory from "../GuessHistory";
 import {checkGuess} from "../../game-helpers";
 import {NUM_OF_GUESSES_ALLOWED} from "../../constants";
 import GameResult from "../GameResult";
+import Keyboard from "../Keyboard";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -33,6 +34,7 @@ function Game() {
     <GuessHistory guessHistory={guessHistory} />
     <GuessInput handleGuess={handleGuess} gameResult={gameResult} />
     <GameResult gameResult={gameResult} answer={answer} guessHistory={guessHistory} />
+    <Keyboard guessHistory={guessHistory} />
   </>;
 }
 
