@@ -29,7 +29,7 @@ function Keyboard({guessHistory}) {
         })
     });
 
-    function borderAndBackgroundColour(key, defaultColour) {
+    function colourByStatus(key, defaultColour) {
         if (key.status === null) {
             return defaultColour;
         } else if (key.status === "misplaced") {
@@ -61,8 +61,8 @@ function Keyboard({guessHistory}) {
                             fontSize: "large",
                             border: "solid",
                             borderRadius: "20%",
-                            borderColor: borderAndBackgroundColour(key, "white"),
-                            backgroundColor: borderAndBackgroundColour(key, "lightgrey"),
+                            borderColor: colourByStatus(key, "white"),
+                            backgroundColor: colourByStatus(key, "lightgrey"),
                             margin: "1%",
                             padding: "2px"
                         }}
