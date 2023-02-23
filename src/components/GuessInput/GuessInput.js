@@ -21,7 +21,7 @@ function GuessInput({ handleGuess, gameResult, inputReference }) {
             type="text"
             value={potentialGuess}
             onChange={event => {
-                const onlyAlphabeticCharacters = event.target.value.replace(/^[^A-Za-z]+$/, '');
+                const onlyAlphabeticCharacters = event.target.value.replace(/[^a-zA-Z]+$/, '');
                 return setPotentialGuess(onlyAlphabeticCharacters);
             }}
             minLength={NUM_OF_LETTERS_PER_GUESS}
